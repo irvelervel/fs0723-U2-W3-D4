@@ -27,6 +27,38 @@ fetch(myURL + '/' + concertId) // 'https://striveschool-api.herokuapp.com/api/ag
   })
   .then((singleConcert) => {
     console.log(singleConcert)
+    // modifichiamo la card sulla base dei dati che abbiamo ottenuto da questa GET "chirurgica"
+    document.getElementById('name').innerText = singleConcert.name
+    document.getElementById('description').innerText = singleConcert.description
+    document.getElementById('price').innerText = singleConcert.price + '€'
+
+    // TASTO DELETE
+    document.getElementById('delete').addEventListener('click', function () {
+      // per eliminare una risorsa, è solamente necessario operare una fetch() con method 'DELETE'
+      // myURL ? NO
+      // myURL + / + concertId
+      fetch(myURL + '/' + concertId, {
+        method: 'DELETE',
+      })
+        .then((response) => {
+          if (response.ok) {
+            // cancellazione andata a buon fine
+            alert('cancellato!')
+            location.assign('./index.html') // riportiamo l'utente in home :)
+          } else {
+            alert('problema nella cancellazione :(')
+            throw new Error('errore nella cancellazione')
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    })
+
+    // TASTO MODIFICA
+    document
+      .getElementById('edit')
+      .setAttribute('href', './backoffice.html?concertId=' + singleConcert._id)
   })
   .catch((err) => {
     console.log(err)
