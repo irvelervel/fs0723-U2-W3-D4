@@ -69,53 +69,23 @@
             <h2>I migliori concerti del WEB</h2>
           </div>
         </div>
-        <div class="row mt-3 justify-content-center">
-          <div class="col col-12 col-md-8 border p-3">
-            <h2>Form di creazione eventi</h2>
-            <form id="concert-form">
-              <div class="mb-3">
-                <label for="name" class="form-label">Nome concerto</label>
-                <input
-                  class="form-control"
-                  id="name"
-                  aria-describedby="emailHelp"
-                  required
-                />
+        <div class="row mt-3 g-3 justify-content-center" id="events-row">
+          <div class="col col-12 col-md-8">
+            <div class="card">
+              <img
+                src="https://img.freepik.com/free-photo/back-view-crowd-fans-watching-live-performance-music-concert-night-copy-space_637285-544.jpg?w=1480&t=st=1705570099~exp=1705570699~hmac=06c85fe577590cd689a88ab44d2985f7bcc0443968af2dae3f437d18db891c46"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
               </div>
-              <div class="mb-3">
-                <label for="description" class="form-label"
-                  >Descrizione concerto</label
-                >
-                <input
-                  class="form-control"
-                  id="description"
-                  aria-describedby="emailHelp"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="time" class="form-label">Data/ora concerto</label>
-                <input
-                  type="datetime-local"
-                  class="form-control"
-                  id="time"
-                  aria-describedby="emailHelp"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="price" class="form-label">Prezzo concerto</label>
-                <input
-                  type="number"
-                  min="0"
-                  class="form-control"
-                  id="price"
-                  aria-describedby="emailHelp"
-                  required
-                />
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -139,6 +109,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="./backoffice.js"></script>
+    <script src="./details.js"></script>
   </body>
 </html>

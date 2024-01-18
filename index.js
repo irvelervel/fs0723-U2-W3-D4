@@ -8,17 +8,22 @@ const generateCards = function (arrayOfConcerts) {
     const newCol = document.createElement('div')
     newCol.classList.add('col', 'col-12', 'col-md-4', 'col-lg-3')
     newCol.innerHTML = `
-        <div class="card">
+        <div class="card h-100">
             <img src="https://img.freepik.com/free-photo/back-view-crowd-fans-watching-live-performance-music-concert-night-copy-space_637285-544.jpg?w=1480&t=st=1705570099~exp=1705570699~hmac=06c85fe577590cd689a88ab44d2985f7bcc0443968af2dae3f437d18db891c46" class="card-img-top" alt="...">
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
                 <h5 class="card-title">${concert.name}</h5>
-                <p class="card-text">${concert.description}</p>
+                <p class="card-text flex-grow-1">${concert.description}</p>
                 <p class="card-text">${concert.time.split('T')[0]} - ${
       concert.time.split('T')[1].split('.')[0]
     }</p>
                 <a href="#" class="btn btn-primary"><i class="bi bi-cart-check me-2"></i>${
-                  concert.price
+                  concert.price || '?'
                 }€</a>
+                <a href="./details.html?concertId=${
+                  concert._id
+                }" class="btn btn-success mt-2"><i class="bi bi-caret-right"></i></i>
+                 VAI AI DETTAGLI 
+                </a>
             </div>
         </div>
         `
@@ -31,9 +36,9 @@ const generateCards = function (arrayOfConcerts) {
 // "2024-05-25T    19:30:00.000Z"
 
 const getConcerts = function () {
-  const URL = 'https://striveschool-api.herokuapp.com/api/agenda'
+  const myURL = 'https://striveschool-api.herokuapp.com/api/agenda'
   // nella homepage useremo questo URL per fare un'operazione di GET
-  fetch(URL)
+  fetch(myURL)
     .then((response) => {
       // tutto bene, ho ottenuto una response dal server
       console.log('response', response)
